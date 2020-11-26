@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const {
   UserInputError,
   AuthenticationError,
@@ -6,7 +7,7 @@ const { generateGameID } = require('../../utils/generateGameID');
 const { Pack } = require('../../models/Pack');
 
 exports.createPack = async (_, { name, description }, context) => {
-  if (context !== 'NOTAUTH') {
+  if (context.User !== 'NOTAUTH') {
     try {
       const id = generateGameID();
       const newPack = new Pack({
@@ -14,9 +15,9 @@ exports.createPack = async (_, { name, description }, context) => {
         description,
         code: id,
         votes: 0,
+        owner: context.User.id,
       });
       const createdPack = await newPack.save();
-      console.log(createdPack);
       return {
         name: createdPack.name,
         description: createdPack.description,

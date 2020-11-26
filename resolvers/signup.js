@@ -32,6 +32,7 @@ exports.signup = async (_, { email, password, nickname }) => {
       await newSession.save();
       return true;
     } catch (error) {
+      console.log(error);
       throw new UserInputError('Error adding user, contact support');
     }
   } else {

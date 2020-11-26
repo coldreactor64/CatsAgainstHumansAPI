@@ -16,7 +16,7 @@ const userSchema = new Schema({
   },
   activeGame: {
     type: String,
-    required: true,
+    required: false,
   },
 
 });

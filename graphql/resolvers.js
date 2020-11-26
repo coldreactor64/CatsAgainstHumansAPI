@@ -2,6 +2,8 @@ const { login } = require('../resolvers/login');
 const { signup } = require('../resolvers/signup');
 const { createPack } = require('../resolvers/mutations/createPack');
 const { addCard } = require('../resolvers/mutations/addCard');
+const { removeCard } = require('../resolvers/mutations/removeCard');
+const { removePack } = require('../resolvers/mutations/removePack');
 
 const resolvers = {
   Query: {
@@ -15,6 +17,8 @@ const resolvers = {
     signup,
     createPack,
     addCard,
+    removeCard,
+    removePack,
   },
 
 };

@@ -19,6 +19,7 @@ const server = new ApolloServer({
   context: async ({ req }) => {
     const token = req.headers.authorization || '';
     const SessionActive = await Sessions.findOne({ token });
+    // console.log(SessionActive);
     if (SessionActive) {
       const User = await Users.findOne({ email: SessionActive.email });
       return { User };

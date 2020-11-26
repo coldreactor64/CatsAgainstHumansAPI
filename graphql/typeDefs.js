@@ -42,7 +42,6 @@ const typeDefs = gql`
     spaces: Int
     text: String!
   }
-
   
   type Pack {
     name: String!
